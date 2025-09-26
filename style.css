@@ -50,12 +50,8 @@ h1, h2, h3 { margin: 0; }
 
 /* Hero */
 .hero {
-<<<<<<< HEAD
   height: 100svh;      /* modern browsers fix */
   min-height: 100vh;   /* fallback */
-=======
-  min-height: 100vh; /* Always full screen height */
->>>>>>> 39888fa5ba0a3ca54936020144d0fd5178c6a166
   background: url('images/image1.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
@@ -71,11 +67,7 @@ h1, h2, h3 { margin: 0; }
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(28,28,28,0.8), rgba(28,28,28,0.2));
-<<<<<<< HEAD
   pointer-events: none;
-=======
-  pointer-events: none; /* prevent blocking */
->>>>>>> 39888fa5ba0a3ca54936020144d0fd5178c6a166
 }
 
 .overlay {
