@@ -29,3 +29,13 @@ if (form) {
     form.reset();
   });
 }
+
+// ✅ Fix hero height for older mobile browsers
+function fixHeroHeight() {
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.style.height = window.innerHeight + "px";
+  }
+}
+window.addEventListener("resize", fixHeroHeight);
+window.addEventListener("load", fixHeroHeight);
