@@ -4,6 +4,7 @@
   --charcoal: #1a1a1a;
   --accent: #d97a36;
   --green: #2e5339;
+  --green-light: #3b6d4d;
   --text: #f2f2f2;
 }
 
@@ -15,6 +16,7 @@ html, body {
   color: var(--text);
   scroll-behavior: smooth;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* ✨ Buttons */
@@ -29,17 +31,18 @@ html, body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.btn { padding: 0.75rem 1.8rem; }
+.btn { padding: 0.75rem 1.8rem; font-size: 1.1rem; }
 .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.9rem; margin-top: 1rem; }
 .btn:hover, .btn-sm:hover {
-  background: #3b6d4d;
+  background: var(--green-light);
   transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(46, 83, 57, 0.8);
+  box-shadow: 0 0 12px rgba(46, 83, 57, 0.8);
 }
 
+/* 🌄 Hero Section */
 .hero {
   min-height: 100vh;
-  height: 100dvh; /* mobile friendly viewport */
+  height: 100dvh; /* mobile-friendly */
   background: url('images/image1.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
@@ -51,15 +54,35 @@ html, body {
   animation: heroZoom 25s ease-in-out infinite alternate;
 }
 
-/* 🔧 Mobile: force background to always fill */
-@media (max-width: 768px) {
-  .hero {
-    background-size: cover;    /* always cover screen */
-    background-position: top center; /* focus top part of mountain */
-    animation: none;           /* disable zoom to avoid black bars */
-  }
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  color: #ddd;
+}
+
+/* 🔧 Mobile Hero Fix */
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;
+    background-position: center bottom; /* keep mountains visible */
+    animation: none; /* disable zoom to prevent black bars */
+  }
+
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+
+/* 🎥 Hero Animation */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
 
 /* 📌 Section Titles */
 h2 {
@@ -80,7 +103,7 @@ h2::after {
   border-radius: 2px;
 }
 
-/* 🗻 Events */
+/* 🗓️ Events Section */
 .events {
   padding: 4rem 2rem;
   text-align: center;
@@ -119,23 +142,27 @@ h2::after {
   gap: 2rem;
   margin-top: 1.5rem;
   font-size: 1.2rem;
-  flex-wrap: wrap; /* allows wrapping if too small */
+  flex-wrap: wrap;
   text-align: center;
 }
+.reasons div {
+  flex: 1;
+  min-width: 100px;
+}
 
-/* On small screens, force them to stay side-by-side */
+/* Mobile fix: keep in one row */
 @media (max-width: 768px) {
   .reasons {
-    flex-wrap: nowrap;   /* don’t allow wrapping */
+    flex-wrap: nowrap;
     gap: 1rem;
-    font-size: 1rem;     /* smaller text for mobile */
+    font-size: 1rem;
   }
   .reasons div {
-    flex: 1;             /* make all equal width */
+    flex: 1;
   }
 }
 
-/* ✉️ Contact */
+/* ✉️ Contact Section */
 .contact {
   padding: 4rem 2rem;
   background: linear-gradient(to right, var(--green), var(--dark));
@@ -165,7 +192,6 @@ h2::after {
   outline: 2px solid var(--green);
   background: #444;
 }
-
 
 /* 🎬 Scroll Reveal */
 .reveal { opacity: 0.4; transform: translateY(40px); transition: all 0.8s ease-out; }
