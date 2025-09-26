@@ -15,6 +15,8 @@ html, body {
   background: var(--charcoal);
   color: var(--mist);
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 { margin: 0; }
@@ -49,7 +51,8 @@ h1, h2, h3 { margin: 0; }
 
 /* Hero */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100dvh; /* dynamic viewport height, works on phones */
   background: url('images/image1.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
@@ -68,14 +71,14 @@ h1, h2, h3 { margin: 0; }
 .overlay { position: relative; z-index: 1; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(40px);
   animation: fadeUp 1.5s ease-out forwards;
 }
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1.5s ease-out forwards;
@@ -141,13 +144,14 @@ h2 {
 }
 .reasons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin-top: 1.5rem;
   font-size: 1.2rem;
 }
 
-/* Contact (merged section) */
+/* Contact */
 .contact {
   padding: 4rem 2rem;
   background: linear-gradient(to right, var(--forest), var(--charcoal));
