@@ -37,10 +37,11 @@ html, body {
   box-shadow: 0 0 10px rgba(46, 83, 57, 0.8);
 }
 
-/* 🏔 Hero */
 .hero {
   min-height: 100vh;
-  background: url('images/image1.jpg') no-repeat center center/cover;
+  height: 100dvh; /* mobile friendly viewport */
+  background: url('images/image1.jpg') no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,22 +50,16 @@ html, body {
   overflow: hidden;
   animation: heroZoom 25s ease-in-out infinite alternate;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3));
-}
-.overlay { position: relative; z-index: 1; text-shadow: 0 4px 15px rgba(0,0,0,0.9); }
-.hero-title { font-size: 3rem; margin-bottom: 1rem; }
-.hero-subtitle { font-size: 1.25rem; margin-bottom: 1.5rem; }
-.hero-btn { margin-top: 1.5rem; }
 
-@keyframes heroZoom {
-  0% { background-size: 100%; }
-  50% { background-size: 115%; }
-  100% { background-size: 100%; }
+/* 🔧 Mobile: force background to always fill */
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;    /* always cover screen */
+    background-position: top center; /* focus top part of mountain */
+    animation: none;           /* disable zoom to avoid black bars */
+  }
 }
+
 
 /* 📌 Section Titles */
 h2 {
